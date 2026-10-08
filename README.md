@@ -1,32 +1,21 @@
-# Opachii Studio — Website v1
+# Opachii Studio — Simple Article Publisher
 
-A clean, data-driven homepage for GitHub Pages, with a separate **local-only** publishing backend.
+## What to upload to GitHub Pages
+Upload `index.html`, `article.html`, `assets/`, and `data/` to the root of your existing GitHub repository. **Keep your existing CNAME**. These are the public website files.
 
-## Frontend deployment
+## What to keep private
+Keep `publisher.html` on your own computer. **Do not upload it to your public GitHub repository**. Double-click `publisher.html` to open it in your browser.
 
-Upload `index.html`, `assets/`, and `data/` to the **root** of your GitHub Pages repository (`main` branch). Keep your existing `CNAME` file (`opachii.studio`) and do not replace it. The public site reads `data/site.json` and displays only content that exists. There are **no demo slides, demo articles, or stock photos**. Sections with no items are hidden.
+## Publishing
+1. In GitHub, create a fine-grained personal access token scoped only to `wowgoldenroutes/Opachii.studio` with Contents read/write permission. Treat it like a password.
+2. Open `publisher.html` locally in Chrome or Edge. Enter the token in GitHub connection. It is held in page memory for the session, not saved.
+3. Write an article, add text and photos, choose a category, and click Publish article.
+4. The editor uploads photos to `assets/uploads/` and adds the article to `data/articles.json`. Your homepage shows the three latest posts per category, and each post has its own article URL.
 
-## Homepage editing
-
-`data/site.json` contains `site`, `hero.slides`, and `sections`. Edit card `title`, `description`, `image`, `href`, and `visible`; add or remove sections and slides. Images can use `/assets/uploads/filename.jpg` after upload. Use the `hero.slides` array for photographs and quotations. Use `sections` for 3-column cards or prose. The empty fourth section is ready for later customization.
-
-## Local backend (publishes to GitHub)
-
-Install Node.js 18 or newer. The backend runs **on your own computer**, not on GitHub Pages. It edits JSON and uploads photos to your GitHub repository using the GitHub Contents API.
-
-In PowerShell:
-
-```powershell
-$env:GITHUB_TOKEN="YOUR_FINE_GRAINED_GITHUB_TOKEN"
-$env:GITHUB_REPO="wowgoldenroutes/Opachii.studio"
-cd backend
-node server.js
-```
-
-Open `http://127.0.0.1:4177`. The server prints an **Admin key** in the terminal; paste it into the publisher's Admin key field. Select **Load current content**, make changes, then **Publish homepage**. Upload photographs separately and use the returned image paths in your content.
-
-Create a fine-grained GitHub personal access token restricted to **this repository**, with **Contents: Read and write**. **Never** put your token in frontend files, `site.json`, screenshots, or GitHub commits. Do not upload the `backend/` folder to GitHub Pages; keep it locally. The backend binds to localhost only. For a remotely hosted backend, proper account authentication, authorization, secure storage, and a hosting service are required.
-
-**Note:** The publisher reads the local `data/site.json` when loading; it doesn't automatically pull edits made elsewhere on GitHub. Work from one publisher or sync the repository before using it to avoid overwriting newer changes.
-
-This v1 backend is a functional technical foundation, not a WordPress-style graphical editor. Future versions can add forms, drag-and-drop, content types, media library, and authenticated remote access.
+## Notes
+- Requires internet and permission to write to the repository. The browser must allow requests to api.github.com from a local file; modern Chrome/Edge generally support this, but browser restrictions can vary.
+- If an upload succeeds but the article JSON update fails, some orphaned photos may remain; you can delete them in GitHub.
+- The editor is for *new* articles only; editing existing posts is not included yet.
+- GitHub Pages is a static host; there is no server-side login, comment system, or WordPress backend.
+- `data/articles.json` is public, as intended for published posts. Do not put private information in it.
+- Publishing may take a few minutes to appear as GitHub Pages deploys.
