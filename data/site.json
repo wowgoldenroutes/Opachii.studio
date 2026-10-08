@@ -1,0 +1,117 @@
+{
+  "site": {
+    "name": "Opachii Studio",
+    "tagline": "",
+    "footer": "\u00a9 Opachii Studio",
+    "navigation": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "News",
+        "href": "/#news"
+      },
+      {
+        "label": "Journeys",
+        "href": "/#journeys"
+      },
+      {
+        "label": "Books",
+        "href": "/#books"
+      },
+      {
+        "label": "Music",
+        "href": "/#music"
+      },
+      {
+        "label": "Prose",
+        "href": "/#prose"
+      }
+    ]
+  },
+  "hero": {
+    "slides": [],
+    "intervalSeconds": 7
+  },
+  "sections": [
+    {
+      "id": "studio",
+      "heading": "From the Studio",
+      "type": "cards",
+      "columns": 3,
+      "items": [
+        {
+          "id": "news",
+          "title": "News",
+          "description": "",
+          "image": "",
+          "href": "",
+          "visible": true
+        },
+        {
+          "id": "updates",
+          "title": "Updates",
+          "description": "",
+          "image": "",
+          "href": "",
+          "visible": true
+        },
+        {
+          "id": "journeys",
+          "title": "Journeys",
+          "description": "",
+          "image": "",
+          "href": "",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "collections",
+      "heading": "Collections",
+      "type": "cards",
+      "columns": 3,
+      "items": [
+        {
+          "id": "books",
+          "title": "Books",
+          "description": "",
+          "image": "",
+          "href": "",
+          "visible": true
+        },
+        {
+          "id": "music",
+          "title": "Music",
+          "description": "",
+          "image": "",
+          "href": "",
+          "visible": true
+        },
+        {
+          "id": "courses",
+          "title": "Courses",
+          "description": "",
+          "image": "",
+          "href": "",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "prose",
+      "heading": "Prose",
+      "type": "prose",
+      "columns": 3,
+      "items": []
+    },
+    {
+      "id": "more",
+      "heading": "",
+      "type": "cards",
+      "columns": 3,
+      "items": []
+    }
+  ]
+}
